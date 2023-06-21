@@ -26,6 +26,7 @@ function App() {
         <CssBaseline />
         <div className="app">
           <Sidebar isSidebar={isSidebar} />
+          {/* style={{ position: "sticky", top: 0 }}  */}
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>

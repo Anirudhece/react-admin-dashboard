@@ -44,6 +44,7 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
+        // position: 'fixed',
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
@@ -79,9 +80,17 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
-                </Typography>
+                {/* <Typography variant="h8" color={colors.grey[100]}>
+                  MSCS
+                </Typography> */}
+                <img
+                  alt="profile-user"
+                  height="40px"
+                  // src={`../../assets/user.png`}
+                  src={'https://media.istockphoto.com/id/1449301187/vector/india-flag-vector-svg-and-png-free-download.jpg?s=612x612&w=0&k=20&c=LFBqqVumDeDdEwRC9mTiHjOccoHn87b1PF71wMdQcNU='}
+                  style={{ cursor: "pointer", }}
+
+                />
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -96,7 +105,8 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  // src={`../../assets/user.png`}
+                  src={'https://mscs.dac.gov.in/images/MSCS_LOGO.png'}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -107,10 +117,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  Employee Name
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Govt of India
                 </Typography>
               </Box>
             </Box>
