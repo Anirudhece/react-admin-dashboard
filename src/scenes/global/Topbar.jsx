@@ -32,7 +32,7 @@ const Topbar = () => {
           style={{ cursor: "pointer", margin: '0 10px 0 10px' }}
         />
         <Box style={{ cursor: "pointer", margin: '0 10px 0 10px' }}>
-          <Typography variant="h3">
+          <Typography variant="h3" fontWeight="bold">
             MULTI-STATE CO-OPERATIVE SOCIETIES
           </Typography>
           <Typography>
