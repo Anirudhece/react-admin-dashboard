@@ -39,7 +39,6 @@ const Topbar = () => {
             Ministry of Cooperation, Govt. of India
           </Typography>
         </Box>
-
       </Box>
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
