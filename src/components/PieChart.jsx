@@ -6,9 +6,19 @@ import { mockPieData as data } from "../data/mockData";
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const customData = [
+    { id: "Agriculture", label: "Agriculture", value: 65.4, color: "#04e484" },
+    { id: "Industrial", label: "Industrial", value: 3.8, color: "#ea88d8" },
+    { id: "Bank", label: "Bank ", value: 3.8, color: "#406474" },
+    { id: "Fisheries", label: "Fisheries ", value: 3.8, color: "#2085ec" },
+    { id: "Health", label: "Health", value: 11.5, color: "#8464a0" },
+    { id: "Others", label: "Others ", value: 11.5, color: "#dfc731" },
+  ];
   return (
+
     <ResponsivePie
-      data={data}
+      data={customData}
+      colors={(d) => d.data.color}
       theme={{
         axis: {
           domain: {
@@ -50,7 +60,7 @@ const PieChart = () => {
       arcLinkLabelsTextColor={colors.grey[100]}
       arcLinkLabelsThickness={2}
       arcLinkLabelsColor={{ from: "color" }}
-      enableArcLabels={false}
+      enableArcLabels={true}
       arcLabelsRadiusOffset={0.4}
       arcLabelsSkipAngle={7}
       arcLabelsTextColor={{
@@ -102,6 +112,7 @@ const PieChart = () => {
           ],
         },
       ]}
+      arcLinkLabels={(d) => d.data.label} // Function to return the label for each arc link
     />
   );
 };
