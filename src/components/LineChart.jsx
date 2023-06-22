@@ -6,10 +6,43 @@ import { mockLineData as data } from "../data/mockData";
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const customData = [
+    {
+      "id": "Kerala", "color": "#a4a9fc",
+      "data": [
+        { "x": "plane", "y": 212 },
+        { "x": "agriculture", "y": 69 },
+        { "x": "banking", "y": 270 },
+        { "x": "industry", "y": 87 },
+        { "x": "health", "y": 75 },
+        { "x": "others", "y": 15 }
+      ]
+    },
+    {
+      "id": "Maharastra",
+      "color": "#4cceac",
+      "data": [
+        { "x": "plane", "y": 101 }, { "x": "agriculture", "y": 75 }, { "x": "banking", "y": 36 }, { "x": "industry", "y": 216 }, { "x": "health", "y": 35 }, { "x": "others", "y": 14 }
+      ]
+    },
+    {
+      "id": "Tamil Nadu",
+      "color": "#4cceac",
+      "data": [
+        { "x": "plane", "y": 98 }, { "x": "agriculture", "y": 26 }, { "x": "banking", "y": 36 }, { "x": "industry", "y": 75 }, { "x": "health", "y": 75 }, { "x": "others", "y": 54 }
+      ]
+    },
+    {
+      "id": "Uttar Pradesh", "color": "#a4a9fc",
+      "data": [
+        { "x": "plane", "y": 212 }, { "x": "agriculture", "y": 190 }, { "x": "banking", "y": 270 }, { "x": "industry", "y": 99 }, { "x": "health", "y": 75 }, { "x": "others", "y": 50 }
+      ]
+    },
+  ]
 
   return (
     <ResponsiveLine
-      data={data}
+      data={customData}
       theme={{
         axis: {
           domain: {
@@ -62,7 +95,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation", // added
+        legend: isDashboard ? undefined : "sectors", // added
         legendOffset: 36,
         legendPosition: "middle",
       }}
