@@ -7,9 +7,18 @@ const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+
+
+  const customData = [
+    { "state": "Maharashtra", "agriculture": 137, "agricultureColor": "hsl(229, 70%, 50%)", "health": 96, "healthColor": "hsl(296, 70%, 50%)", "fish": 72, "fishColor": "hsl(97, 70%, 50%)", "bank": 140, "bankColor": "hsl(340, 70%, 50%)", 'industry': 12, 'industryColor': 'hsl(224, 70%, 50%)', 'others': 5, 'othersColor': 'hsl(274, 70%, 50%)' },
+    { "state": "Uttar Pradesh", "agriculture": 132, "agricultureColor": "hsl(229, 70%, 50%)", "health": 12, "healthColor": "hsl(296, 70%, 50%)", "fish": 96, "fishColor": "hsl(97, 70%, 50%)", "bank": 75, "bankColor": "hsl(340, 70%, 50%)", 'industry': 140, 'industryColor': 'hsl(224, 70%, 50%)', 'others': 5, 'othersColor': 'hsl(274, 70%, 50%)' },
+    { "state": "Haryana", "agriculture": 72, "agricultureColor": "hsl(229, 70%, 50%)", "health": 140, "healthColor": "hsl(296, 70%, 50%)", "fish": 27, "fishColor": "hsl(97, 70%, 50%)", "bank": 96, "bankColor": "hsl(340, 70%, 50%)", 'industry': 9, 'industryColor': 'hsl(224, 70%, 50%)', 'others': 8, 'othersColor': 'hsl(274, 70%, 50%)' },
+    { "state": "Rajasthan", "agriculture": 12, "agricultureColor": "hsl(229, 70%, 50%)", "health": 72, "healthColor": "hsl(296, 70%, 50%)", "fish": 96, "fishColor": "hsl(97, 70%, 50%)", "bank": 140, "bankColor": "hsl(340, 70%, 50%)", 'industry': 130, 'industryColor': 'hsl(224, 70%, 50%)', 'others': 5, 'othersColor': 'hsl(274, 70%, 50%)' },
+  ];
+
   return (
     <ResponsiveBar
-      data={data}
+      data={customData}
       theme={{
         // added
         axis: {
@@ -39,8 +48,10 @@ const BarChart = ({ isDashboard = false }) => {
           },
         },
       }}
-      keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
-      indexBy="country"
+
+      keys={["agriculture", "health", "fish", "bank", "industry"]}
+
+      indexBy="state"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
       valueScale={{ type: "linear" }}
@@ -76,7 +87,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "country", // changed
+        legend: isDashboard ? undefined : "state", // changed
         legendPosition: "middle",
         legendOffset: 32,
       }}
@@ -121,7 +132,7 @@ const BarChart = ({ isDashboard = false }) => {
       ]}
       role="application"
       barAriaLabel={function (e) {
-        return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
+        return e.id + ": " + e.formattedValue + " in state: " + e.indexValue;
       }}
     />
   );
