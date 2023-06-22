@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataContacts } from "../../data/mockData";
+import companiesData from "../../data/companiesData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 
@@ -9,22 +9,23 @@ const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    // { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
+    // {
+    //   field: "age",
+    //   headerName: "Age",
+    //   type: "number",
+    //   headerAlign: "left",
+    //   align: "left",
+    // },
     {
       field: "phone",
       headerName: "Phone Number",
@@ -40,14 +41,14 @@ const Contacts = () => {
       headerName: "Address",
       flex: 1,
     },
+    // {
+    //   field: "city",
+    //   headerName: "City",
+    //   flex: 1,
+    // },
     {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
+      field: "sectorType",
+      headerName: "sectorType",
       flex: 1,
     },
   ];
@@ -56,7 +57,7 @@ const Contacts = () => {
     <Box m="20px">
       <Header
         title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        subtitle="List of Contacts "
       />
       <Box
         m="40px 0 0 0"
@@ -89,9 +90,9 @@ const Contacts = () => {
             color: `${colors.grey[100]} !important`,
           },
         }}
-      >
+      >   
         <DataGrid
-          rows={mockDataContacts}
+          rows={companiesData}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
